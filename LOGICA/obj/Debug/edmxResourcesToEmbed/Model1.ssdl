@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CrudAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Empleados">
+    <Key>
+      <PropertyRef Name="idEmpleado" />
+    </Key>
+    <Property Name="idEmpleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usuario" Type="nchar" MaxLength="16" Nullable="false" />
+    <Property Name="contraseña" Type="nchar" MaxLength="16" Nullable="false" />
+    <Property Name="fechaAlta" Type="date" Nullable="false" />
+    <Property Name="telefono" Type="int" />
+    <Property Name="nombre" Type="nchar" MaxLength="20" />
+    <Property Name="apellidos" Type="nchar" MaxLength="60" />
+    <Property Name="cargo" Type="nchar" MaxLength="30" />
+    <Property Name="email" Type="nchar" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="TrabajosRealizados">
+    <Key>
+      <PropertyRef Name="idRegistro" />
+    </Key>
+    <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="horaEntrada" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="horaSalida" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="idRegistro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="idEmpleado" Type="int" Nullable="false" />
+    <Property Name="horasTotales" Type="int" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityContainer Name="CrudAppModelStoreContainer">
+    <EntitySet Name="Empleados" EntityType="Self.Empleados" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TrabajosRealizados" EntityType="Self.TrabajosRealizados" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CrudAppModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Empleados">
+    <Key>
+      <PropertyRef Name="idEmpleado" />
+    </Key>
+    <Property Name="idEmpleado" Type="Int32" Nullable="false" />
+    <Property Name="usuario" Type="String" MaxLength="16" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="contraseña" Type="String" MaxLength="16" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="fechaAlta" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="TrabajosRealizados" Relationship="Self.FK_idEmpleado" FromRole="Empleados" ToRole="TrabajosRealizados" />
+    <Property Name="telefono" Type="Int32" />
+    <Property Name="nombre" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="apellidos" Type="String" MaxLength="60" FixedLength="true" Unicode="true" />
+    <Property Name="cargo" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="60" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TrabajosRealizados">
+    <Key>
+      <PropertyRef Name="idRegistro" />
+    </Key>
+    <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="horaEntrada" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="horaSalida" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="idRegistro" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Precision="0" Nullable="false" />
+    <Property Name="idEmpleado" Type="Int32" Nullable="false" />
+    <Property Name="horasTotales" Type="Int32" />
+    <NavigationProperty Name="Empleados" Relationship="Self.FK_idEmpleado" FromRole="TrabajosRealizados" ToRole="Empleados" />
+  </EntityType>
+  <Association Name="FK_idEmpleado">
+    <End Role="Empleados" Type="Self.Empleados" Multiplicity="1" />
+    <End Role="TrabajosRealizados" Type="Self.TrabajosRealizados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleados">
+        <PropertyRef Name="idEmpleado" />
+      </Principal>
+      <Dependent Role="TrabajosRealizados">
+        <PropertyRef Name="idEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CrudAppEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Empleados" EntityType="Self.Empleados" />
+    <EntitySet Name="TrabajosRealizados" EntityType="Self.TrabajosRealizados" />
+    <AssociationSet Name="FK_idEmpleado" Association="Self.FK_idEmpleado">
+      <End Role="Empleados" EntitySet="Empleados" />
+      <End Role="TrabajosRealizados" EntitySet="TrabajosRealizados" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

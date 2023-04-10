@@ -1,0 +1,9 @@
+C:\Proyectos Visual\WindowsAppCrud\COMUN\bin\Debug\COMUN.dll
+C:\Proyectos Visual\WindowsAppCrud\COMUN\bin\Debug\COMUN.pdb
+C:\Proyectos Visual\WindowsAppCrud\COMUN\bin\Debug\COMUN.xml
+C:\Proyectos Visual\WindowsAppCrud\COMUN\obj\Debug\COMUN.Resources.resources
+C:\Proyectos Visual\WindowsAppCrud\COMUN\obj\Debug\COMUN.vbproj.GenerateResource.cache
+C:\Proyectos Visual\WindowsAppCrud\COMUN\obj\Debug\COMUN.vbproj.CoreCompileInputs.cache
+C:\Proyectos Visual\WindowsAppCrud\COMUN\obj\Debug\COMUN.dll
+C:\Proyectos Visual\WindowsAppCrud\COMUN\obj\Debug\COMUN.xml
+C:\Proyectos Visual\WindowsAppCrud\COMUN\obj\Debug\COMUN.pdb
